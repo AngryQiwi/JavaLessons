@@ -48,13 +48,12 @@ public class DictionaryIO {
 
     public void deleteStringFromDictionary(String deletedkey) throws IOException {
         StringBuilder returnedDictionary = new StringBuilder();
-        BufferedWriter outputStream = new BufferedWriter(new FileWriter(pathToDict));
         String[] dictionaryArray = readAllFromDictionary().toString().split("\\n");
+        BufferedWriter outputStream = new BufferedWriter(new FileWriter(pathToDict));
         List<String> dictionaryList = new LinkedList<>(Arrays.asList(dictionaryArray));
         dictionaryList.remove("");
-        int dictionaryArrayLength = dictionaryArray.length - 1;
         for (String value : dictionaryList) {
-            if (!value.substring(0, 4).equals(deletedkey)) returnedDictionary.append(value).append("\n");
+            if (!value.substring(0, 6).equals(deletedkey.substring(0, 6))) returnedDictionary.append(value).append("\n");
         }
         outputStream.write(String.valueOf(returnedDictionary));
         outputStream.close();

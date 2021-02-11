@@ -59,16 +59,18 @@ public class Main {
                 }
                 case 2:  {
                     System.out.print("Введите слово: ");
-                    String word = scanner.next();
-                    String findedValue = dictionary.findStringFromDictionary(word);
+                    String word = scanner.next()+" -";
+                    String wordAndDash = word.substring(0, 6);
+                    String findedValue = dictionary.findStringFromDictionary(wordAndDash);
                     if (findedValue != null) System.out.println(findedValue);
                     else System.out.println("Значение не найдено");
                     continue;
                 }
                 case 3:  {
                     System.out.print("Введите слово: ");
-                    String word = scanner.next();
-                    if (dictionary.findStringFromDictionary(word) != null) {
+                    String word = scanner.next()+" -";
+                    String wordAndDash = word.substring(0, 6);
+                    if (dictionary.findStringFromDictionary(wordAndDash) != null) {
                         dictionary.deleteStringFromDictionary(word);
                         System.out.println("Данные удалены.");
                     } else System.out.println("Значение не найдено");
